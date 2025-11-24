@@ -58,8 +58,15 @@ def main():
 
     counter=0
     while True:
+        #input('Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n: ')
+        try:
+            x = int(input('Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n: '))
 
-        x = int(input('Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n: '))
+        except ValueError :
+            delete ()
+            print("Please enter a valid number!!!")
+            time.sleep(1)
+
 
         delete()
 
@@ -102,11 +109,12 @@ def main():
             delete ()
 
             break
-
+        
         else:
-            delete ()
+            print("Please enter a valid number")
+            time.sleep(1)
+            delete()
 
-            print("Choose something that exists!!!")
 
 if __name__=="__main__":
     main()

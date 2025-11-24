@@ -5,16 +5,23 @@ def delete() :
     os.system("cls" if os.name == "nt" else "clear")
 
 
+def animation(text):
+    for char in text:
+        print(char , end="" , flush=True)
+        time.sleep(0.06)
+
+
 def int_check() :
     while True :
-        age=input("Enter employee's age (int): ").strip()
+        animation("Enter employee's age (int): ")
+        age=input("").strip()
 
         try:
             age=int(age) 
             
             if age<=0 or age>110:
                 delete()
-                print("Please enter a valid age!!")
+                animation("Please enter a valid age!!")
                 time.sleep(1)
                 delete()
             else:
@@ -24,7 +31,7 @@ def int_check() :
 
         except ValueError:
             delete()
-            print("Please write a valid number!!")
+            animation("Please write a valid number!!")
             time.sleep(1)
             delete()
 
@@ -35,11 +42,12 @@ def string_check(srt):
     invalids=string.punctuation +"0123456789"
 
     while True:
-        str = input(f"Enter employee's {srt}:").capitalize().strip()
+        animation("Enter employee's")
+        str = input(f" {srt}:").capitalize().strip()
 
         if any(char in invalids for char in str):
             delete()
-            print(f"=== PLEASE ENTER {srt} WITHOUT PUNCTUATION OR NUMBERS ===")
+            animation(f"=== PLEASE ENTER {srt} WITHOUT PUNCTUATION OR NUMBERS ===")
             time.sleep(1)
             delete()
 
@@ -54,19 +62,24 @@ def main():
     delete ()
     list1 = [] 
 
-    print ("***** Hello Welcome *****\n")
+    animation ("***** Hello Welcome *****\n")
 
     counter=0
     while True:
-        #input('Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n: ')
+        
         try:
-            x = int(input('Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n: '))
+            y=[1,2,3]
+            animation("Type 1️⃣  for Adding user...\nType 2️⃣  for Showing users...\nType 3️⃣  for Exit...\n\n")
+            x = int(input(":"))
+            if x not in y:
+                delete ()
+                animation("Please enter a valid number!!!")
+                time.sleep(1)
 
         except ValueError :
             delete ()
-            print("Please enter a valid number!!!")
+            animation("Please enter a valid number!!!")
             time.sleep(1)
-
 
         delete()
 
@@ -83,7 +96,7 @@ def main():
             list1.append({"user": counter,"name": name, "age": age, "occupation": occupation})
             delete()
 
-            print(f"\n{name}'s user has been added successfully.")
+            animation(f"\n{name}'s user has been added successfully.")
             time.sleep(1.5)
             delete()
 
@@ -93,7 +106,7 @@ def main():
             delete ()
 
             if not list1:
-                print("No information stored yet\n\n")
+                animation("No information stored yet!!!!\n\n")
                 time.sleep(2)
                 delete()
 
@@ -109,11 +122,6 @@ def main():
             delete ()
 
             break
-        
-        else:
-            print("Please enter a valid number")
-            time.sleep(1)
-            delete()
 
 
 if __name__=="__main__":

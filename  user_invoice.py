@@ -75,7 +75,7 @@ def main():
         try:
             y = [1, 2, 3]
             animation(
-                "Type 1️⃣  for ...Adding user...\nType 2️⃣  for ...Showing users...\nType 3️⃣  for ...Exit...\n\n"
+                "Type (1) for ...Adding user...\nType (2) for ...Showing users...\nType (3) for ...Exit...\n\n"
             )
             x = int(input(":"))
             if x not in y:
